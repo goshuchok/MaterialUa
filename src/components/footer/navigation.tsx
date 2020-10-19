@@ -22,21 +22,20 @@ const Navigation : FC = () => {
                 </ListItem>
                 <ListItem className="p-0">
                   <NavLink to="/" className={classes.color}>
-                    Contact
+                    AboutUs
                   </NavLink>
                 </ListItem> 
                 <ListItem className="p-0">
                   <NavLink to="/" className={classes.color}>
-                    Contact
+                    Help
                   </NavLink>
                 </ListItem> 
                 <ListItem className="p-0">
                   <NavLink to="/" className={classes.color}>
-                    Contact
+                    Error
                   </NavLink>
                 </ListItem>             
-            </List>
-            
+            </List>            
         </Box>
     )
 }
