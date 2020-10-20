@@ -1,20 +1,33 @@
 import React from 'react';
 import clsx from 'clsx';
-import { AppBar, Box, Button, Container, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Divider, Drawer, IconButton, InputBase, List, ListItem, ListItemText, TextField, Toolbar, Typography } from '@material-ui/core';
+import {
+  AppBar,
+  Button,
+  Divider,
+  Drawer,
+  IconButton,
+  InputBase,
+  List,
+  ListItem,
+  ListItemText,
+  Toolbar,
+  Typography,
+} from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
-import {fade, makeStyles, useTheme} from '@material-ui/core/styles';
+import { fade, makeStyles, useTheme } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
+import LogIn from './logIn';
 
 const drawerWidth = 240;
 
-const useStyles = makeStyles((theme)=>({
-  root:{
-    flexGrow: 1
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
   },
   appBarShift: {
     width: `calc(100% - ${drawerWidth}px)`,
@@ -27,9 +40,9 @@ const useStyles = makeStyles((theme)=>({
   menuButton: {
     marginRight: theme.spacing(2),
   },
-   hide: {
-      display: 'none',
-    },
+  hide: {
+    display: 'none',
+  },
   drawer: {
     width: drawerWidth,
     flexShrink: 0,
@@ -41,7 +54,6 @@ const useStyles = makeStyles((theme)=>({
     display: 'flex',
     alignItems: 'center',
     padding: theme.spacing(0, 1),
-    // necessary for content to be below app bar
     ...theme.mixins.toolbar,
     justifyContent: 'flex-end',
   },
@@ -55,7 +67,7 @@ const useStyles = makeStyles((theme)=>({
     marginLeft: -drawerWidth,
   },
   title: {
-       flexGrow: 1
+    flexGrow: 1,
   },
   search: {
     position: 'relative',
@@ -84,7 +96,7 @@ const useStyles = makeStyles((theme)=>({
     color: 'inherit',
   },
   inputInput: {
-    padding: theme.spacing(1, 1, 1, 0),  
+    padding: theme.spacing(1, 1, 1, 0),
     paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
     transition: theme.transitions.create('width'),
     width: '100%',
@@ -95,93 +107,57 @@ const useStyles = makeStyles((theme)=>({
       },
     },
   },
-}))
+}));
 function Header() {
-    const classes = useStyles();
-    const theme = useTheme();
-    const [open, setOpen] = React.useState(false);
-    const [close, setClose] = React.useState(false);
-    const handleClickOpen = () => {
-      setOpen(true);
-    }
-    const handleClose = () => {
-      setOpen(false)
-    }
-    const handleDrawerOpen = () => {
-      setClose(true);
-    };
-    const handleDrawerClose = () => {
-      setClose(false);
-    };
-    return (
-      <>
-        <AppBar position="fixed" 
+  const classes = useStyles();
+  const theme = useTheme();
+  const [open] = React.useState(false);
+  const [close, setClose] = React.useState(false);
+  const handleDrawerOpen = () => {
+    setClose(true);
+  };
+  const handleDrawerClose = () => {
+    setClose(false);
+  };
+  return (
+    <>
+      <AppBar
+        position="fixed"
         className={clsx({
           [classes.appBarShift]: close,
-        })}>
-        {/* <Container fixed> */}
-          <Toolbar>
-             <IconButton         
-                color="inherit"
-                aria-label="open drawer"
-                onClick={handleDrawerOpen}
-                edge="start"
-                className={clsx(classes.menuButton, open && classes.hide)}
-                >
-                <MenuIcon />
-              </IconButton>
-             <Typography variant="h6" className={classes.title}>Material</Typography>
-              <Box mr={3}>
-               <Button color="inherit" variant="outlined" 
-                onClick={handleClickOpen}
-                >Log In</Button>
-               <Dialog 
-                open={open} 
-                onClose={handleClose}
-                aria-labelledby="form-dialog-title"
-                  >
-                <DialogTitle id="form-dialog-title">Log in</DialogTitle>
-                <DialogContent>
-                  <DialogContentText>Log in to see videos</DialogContentText>
-                  <TextField
-                    autoFocus
-                    margin="dense"
-                    id="name"
-                    label="Email Address"
-                    type="email"
-                    fullWidth
-                  />
-                  <TextField
-                    autoFocus
-                    margin="dense"
-                    id="pass"
-                    label="Password"
-                    type="password"
-                    fullWidth
-                  />
-                </DialogContent>
-                <DialogActions>
-                  <Button onClick={handleClose} color="primary">Cancel</Button>
-                  <Button onClick={handleClose} color="primary">Log in</Button>
-                </DialogActions>
-               </Dialog>
-             </Box>
-            <Button color="secondary" variant="contained">Sign Up</Button>
-            <div className={classes.search}>
-              <div className={classes.searchIcon}>
-                <SearchIcon />
-              </div>
-              <InputBase
-                placeholder="Search…"
-                classes={{
-                  root: classes.inputRoot,
-                  input: classes.inputInput,
-                }}
-                inputProps={{ 'aria-label': 'search' }}
-              />
+        })}
+      >
+        <Toolbar>
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            onClick={handleDrawerOpen}
+            edge="start"
+            className={clsx(classes.menuButton, open && classes.hide)}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" className={classes.title}>
+            Material
+          </Typography>
+          <LogIn />
+          <Button color="secondary" variant="contained">
+            Sign Up
+          </Button>
+          <div className={classes.search}>
+            <div className={classes.searchIcon}>
+              <SearchIcon />
             </div>
-          </Toolbar>
-        {/* </Container> */}
+            <InputBase
+              placeholder="Search…"
+              classes={{
+                root: classes.inputRoot,
+                input: classes.inputInput,
+              }}
+              inputProps={{ 'aria-label': 'search' }}
+            />
+          </div>
+        </Toolbar>
       </AppBar>
       <Drawer
         className={classes.drawer}
@@ -194,22 +170,28 @@ function Header() {
       >
         <div className={classes.drawerHeader}>
           <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+            {theme.direction === 'ltr' ? (
+              <ChevronLeftIcon />
+            ) : (
+              <ChevronRightIcon />
+            )}
           </IconButton>
         </div>
         <Divider />
         <List>
           {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
             <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+              <ListItemIcon>
+                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              </ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
           ))}
         </List>
-        <Divider />      
+        <Divider />
       </Drawer>
-      </>
-    )
+    </>
+  );
 }
 
 export default Header;

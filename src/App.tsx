@@ -5,13 +5,13 @@ import Main from './components/main';
 import MainContent from './components/mainContent';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-function App() { 
+function App() {
   return (
     <Router>
       <Header />
       <Main />
-      <MainContent />  
-      <Footer/>    
+      <MainContent />
+      <Footer />
     </Router>
   );
 }

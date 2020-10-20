@@ -13,54 +13,53 @@ const useStales = makeStyles((theme) => ({
   footerTop: {
     marginTop: theme.spacing(9),
   },
-  footerColor:{
-    color: "inherit",
-    backgroundColor: "#1E2125",
+  footerColor: {
+    color: 'inherit',
+    backgroundColor: '#1E2125',
   },
-  logo:{
-    color: "#61dafb",
-    float: "left",
-    margin: "1rem 0.8rem"
+  logo: {
+    color: '#61dafb',
+    float: 'left',
+    margin: '1rem 0.8rem',
   },
-  line:{
-    width: "100%",
-    color: "default",
-    margin: "0"
-  } 
+  line: {
+    width: '100%',
+    color: 'default',
+    margin: '0',
+  },
 }));
 
 function Footer() {
   const classes = useStales();
-  
+
   return (
-    
     <Grid container direction="column">
       <Grid container justify="space-between" className={classes.footerColor}>
         <Grid item xs={12} sm={6}>
-          <img 
+          <img
             className={classes.logo}
             src="material-ui.svg"
             alt="logo"
             width="42px"
             height="42px"
           />
-          <Typography component="h6" variant="subtitle1" className={classes.logo}>
+          <Typography
+            component="h6"
+            variant="subtitle1"
+            className={classes.logo}
+          >
             Material UI
           </Typography>
         </Grid>
-        <Grid item xs={12} sm={6}> 
-          <Apps /> 
-        </Grid>    
-      <hr className={classes.line}/>
-      <Grid container justify="space-between" alignItems="flex-end">
+        <Grid item xs={12} sm={6}>
+          <Apps />
+        </Grid>
+        <hr className={classes.line} />
+        <Grid container justify="space-between" alignItems="flex-end">
           <Grid item xs={6} sm={4}>
             <Navigation />
           </Grid>
-          <Grid
-            item
-            xs={12}
-            sm={4}
-          >
+          <Grid item xs={12} sm={4}>
             <Copyright />
           </Grid>
           <Grid item xs={6} sm={4}>
@@ -69,15 +68,15 @@ function Footer() {
               direction="column"
               justify="space-between"
               alignItems="flex-end"
-              className="h-full"              
+              className="h-full"
             >
-              <Grid item xs style={{marginRight:"1.5rem"}}>
+              <Grid item xs style={{ marginRight: '1.5rem' }}>
                 <SocialFollow />
-              </Grid>             
+              </Grid>
             </Grid>
           </Grid>
         </Grid>
-          {/* <Grid container spacing={3} justify="space-between" alignItems="flex-end">
+        {/* <Grid container spacing={3} justify="space-between" alignItems="flex-end">
             <Grid item xs >
               <Navigation />
             </Grid>
@@ -88,10 +87,9 @@ function Footer() {
               <SocialFollow />
             </Grid>
           </Grid> */}
-        </Grid>  
+      </Grid>
     </Grid>
-  
-  )
+  );
 }
 
 export default Footer;
