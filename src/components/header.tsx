@@ -22,6 +22,7 @@ import { fade, makeStyles, useTheme } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
 import SignIn from './signIn';
 import SignUp from './signUp';
+import Avatar from '@material-ui/core/Avatar/Avatar';
 
 const drawerWidth = 240;
 
@@ -49,6 +50,8 @@ const useStyles = makeStyles((theme) => ({
   },
   drawerPaper: {
     width: drawerWidth,
+    backgroundColor: 'rgba(0, 0, 0, 0.87)',
+    color: '#ffff',
   },
   drawerHeader: {
     display: 'flex',
@@ -56,6 +59,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(0, 1),
     ...theme.mixins.toolbar,
     justifyContent: 'flex-end',
+    backgroundColor: '#192d3e',
   },
   content: {
     flexGrow: 1,
@@ -107,6 +111,14 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
+  large: {
+    width: theme.spacing(7),
+    height: theme.spacing(7),
+    marginRight: theme.spacing(7),
+  },
+  icon: {
+    color: '#fff',
+  },
 }));
 function Header() {
   const classes = useStyles();
@@ -123,6 +135,7 @@ function Header() {
     <>
       <AppBar
         position="fixed"
+        style={{ backgroundColor: '#1E2125' }}
         className={clsx({
           [classes.appBarShift]: close,
         })}
@@ -167,6 +180,11 @@ function Header() {
         }}
       >
         <div className={classes.drawerHeader}>
+          <Avatar
+            alt="Remy Sharp"
+            src="Velazquez.jpg"
+            className={classes.large}
+          />
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'ltr' ? (
               <ChevronLeftIcon />
@@ -179,7 +197,7 @@ function Header() {
         <List>
           {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
             <ListItem button key={text}>
-              <ListItemIcon>
+              <ListItemIcon className={classes.icon}>
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
               </ListItemIcon>
               <ListItemText primary={text} />

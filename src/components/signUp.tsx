@@ -36,7 +36,11 @@ const SignUp: FC = () => {
   return (
     <div>
       <Box mr={3}>
-        <Button color="secondary" variant="contained" onClick={handleClickOpen}>
+        <Button
+          style={{ backgroundColor: '#61dafb' }}
+          variant="contained"
+          onClick={handleClickOpen}
+        >
           Sign Up
         </Button>
         <Dialog open={open} onClose={handleClose} maxWidth="xs">
