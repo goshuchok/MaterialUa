@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import {
   Box,
   Button,
@@ -11,6 +11,7 @@ import {
   Grid,
   Link,
   TextField,
+  Typography,
 } from '@material-ui/core';
 
 import makeStyles from '@material-ui/core/styles/makeStyles';
@@ -27,9 +28,13 @@ const useStyle = makeStyles((theme) => ({
   forgot: {
     margin: theme.spacing(3),
   },
+  copyright: {
+    marginTop: theme.spacing(2),
+    textAlign: 'center',
+  },
 }));
 
-function LogIn() {
+const SignIn: FC = () => {
   const [open, setOpen] = React.useState(false);
   const handleClickOpen = () => {
     setOpen(true);
@@ -42,11 +47,11 @@ function LogIn() {
     <div>
       <Box mr={3}>
         <Button color="inherit" variant="outlined" onClick={handleClickOpen}>
-          Log In
+          Sign In
         </Button>
         <Dialog open={open} onClose={handleClose} maxWidth="xs">
           <DialogTitle id="form-dialog-title" style={{ textAlign: 'center' }}>
-            Log In
+            Sign In
           </DialogTitle>
           <DialogContent>
             <TextField
@@ -100,7 +105,7 @@ function LogIn() {
             </Button>
           </DialogActions>
           <Grid container>
-            <Grid item xs>
+            <Grid item xs style={{ marginBottom: '9px' }}>
               <Link href="#" variant="body2" className={classes.forgot}>
                 Forgot password?
               </Link>
@@ -111,10 +116,22 @@ function LogIn() {
               </Link>
             </Grid>
           </Grid>
+          <Typography
+            variant="body2"
+            color="textSecondary"
+            className={classes.copyright}
+          >
+            {'Copyright © '}
+            <Link color="inherit" href="https://material-ui.com/">
+              Material Ui
+            </Link>{' '}
+            {new Date().getFullYear()}
+            {'.'}
+          </Typography>
         </Dialog>
       </Box>
     </div>
   );
-}
+};
 
-export default LogIn;
+export default SignIn;

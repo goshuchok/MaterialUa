@@ -2,7 +2,6 @@ import React from 'react';
 import clsx from 'clsx';
 import {
   AppBar,
-  Button,
   Divider,
   Drawer,
   IconButton,
@@ -21,7 +20,8 @@ import MailIcon from '@material-ui/icons/Mail';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import { fade, makeStyles, useTheme } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
-import LogIn from './logIn';
+import SignIn from './signIn';
+import SignUp from './signUp';
 
 const drawerWidth = 240;
 
@@ -140,10 +140,8 @@ function Header() {
           <Typography variant="h6" className={classes.title}>
             Material
           </Typography>
-          <LogIn />
-          <Button color="secondary" variant="contained">
-            Sign Up
-          </Button>
+          <SignIn />
+          <SignUp />
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
