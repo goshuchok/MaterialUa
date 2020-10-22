@@ -1,10 +1,11 @@
-import React from 'react';
-import { Grid, Typography } from '@material-ui/core';
+import React, { FC } from 'react';
+import { Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Apps from './apps';
 import SocialFollow from './social-follow';
 import Navigation from './navigation';
 import Copyright from './copyright';
+import FooterLogo from './footer-logo';
 
 const useStales = makeStyles((theme) => ({
   root: {
@@ -29,27 +30,14 @@ const useStales = makeStyles((theme) => ({
   },
 }));
 
-function Footer() {
+const Footer: FC = () => {
   const classes = useStales();
 
   return (
     <Grid container direction="column">
       <Grid container justify="space-between" className={classes.footerColor}>
         <Grid item xs={12} sm={6}>
-          <img
-            className={classes.logo}
-            src="material-ui.svg"
-            alt="logo"
-            width="42px"
-            height="42px"
-          />
-          <Typography
-            component="h6"
-            variant="subtitle1"
-            className={classes.logo}
-          >
-            Material UI
-          </Typography>
+          <FooterLogo />
         </Grid>
         <Grid item xs={12} sm={6}>
           <Apps />
@@ -76,20 +64,9 @@ function Footer() {
             </Grid>
           </Grid>
         </Grid>
-        {/* <Grid container spacing={3} justify="space-between" alignItems="flex-end">
-            <Grid item xs >
-              <Navigation />
-            </Grid>
-            <Grid item xs={6}>
-              <Copyright />
-            </Grid>
-            <Grid item xs>
-              <SocialFollow />
-            </Grid>
-          </Grid> */}
       </Grid>
     </Grid>
   );
-}
+};
 
 export default Footer;

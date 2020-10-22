@@ -23,7 +23,12 @@ const useStyle = makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
-    backgroundColor: theme.palette.primary.main,
+    // backgroundColor: theme.palette.primary.main,
+    backgroundColor: '#192d3e',
+    color: '#fff',
+    '&:hover': {
+      backgroundColor: '#1c1605',
+    },
   },
   forgot: {
     margin: theme.spacing(3),
@@ -98,7 +103,7 @@ const SignIn: FC = () => {
               type="submit"
               fullWidth
               variant="contained"
-              color="primary"
+              // color="primary"
               className={classes.submit}
             >
               Log in

@@ -17,6 +17,11 @@ import {
 const useStyles = makeStyles((theme) => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
+    backgroundColor: '#192d3e',
+    color: '#fff',
+    '&:hover': {
+      backgroundColor: '#1c1605',
+    },
   },
   copyright: {
     marginTop: theme.spacing(2),
@@ -108,7 +113,6 @@ const SignUp: FC = () => {
               type="submit"
               fullWidth
               variant="contained"
-              color="primary"
               className={classes.submit}
             >
               Sign Up

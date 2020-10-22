@@ -20,8 +20,8 @@ import MailIcon from '@material-ui/icons/Mail';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import { fade, makeStyles, useTheme } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
-import SignIn from './signIn';
-import SignUp from './signUp';
+import SignIn from './sign-in';
+import SignUp from './sign-up';
 import Avatar from '@material-ui/core/Avatar/Avatar';
 
 const drawerWidth = 240;
